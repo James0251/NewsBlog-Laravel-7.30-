@@ -17,6 +17,10 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController');
 });
 
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/dashboard', 'DashboardController');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
