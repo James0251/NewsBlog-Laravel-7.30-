@@ -1,12 +1,12 @@
-body{
-    margin:0;
-    color:#5763ff;
-    background:#c8c8c8;
+/*body{*/
+/*    !*margin:0;*!*/
+/*    color:#;*/
+/*    !*background:#c8c8c8;*!*/
 
-    background-size: cover;
+/*    !*background-size: cover;*!*/
 
-    font:600 16px/18px 'Open Sans',sans-serif;
-}
+/*    font:600 16px/18px 'Open Sans',sans-serif;*/
+/*}*/
 
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
