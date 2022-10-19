@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+
     @include('admin.layouts.style')
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
 </head>
