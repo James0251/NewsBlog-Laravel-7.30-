@@ -279,7 +279,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Level 3</a>
+                                    <a class="nav-link" href="{{ route('admin.category') }}">Category</a>
                                 </li>
                             </ul>
                         </div>

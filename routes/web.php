@@ -19,6 +19,8 @@ Route::group(['namespace' => 'Main'], function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/dashboard', 'DashboardController');
+
+    Route::get('/category', 'Category\CategoryContrller@index')->name('admin.category');
 });
 
 Auth::routes();
