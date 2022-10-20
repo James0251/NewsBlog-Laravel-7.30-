@@ -18,9 +18,13 @@ Route::group(['namespace' => 'Main'], function () {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    Route::get('/dashboard', 'DashboardController');
+    Route::get('/dashboard', 'DashboardController')->name('admin.dashboard');
 
-    Route::get('/category', 'Category\CategoryContrller@index')->name('admin.category');
+    Route::group(['prefix' => 'blog'], function () {
+        Route::resource('/categories', 'Blog\Category\CategoryController');
+    });
+
+
 });
 
 Auth::routes();
