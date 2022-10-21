@@ -58,7 +58,7 @@
                             @foreach($categories as $category)
                                 <tr>
                                     <th scope="row">{{ $category->id }}</th>
-                                    <td>{{ $category->title }}</td>
+                                    <td><a href="{{ route('categories.show', ['category' => $category->id]) }}">{{ $category->title }}</a></td>
                                     <td>{{ $category->slug }}</td>
                                     <td>{{ $category->image }}</td>
                                     <td>{{ $category->content }}</td>

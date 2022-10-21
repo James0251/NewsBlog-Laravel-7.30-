@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10" style="left: 50px">
             <div class="section-block" id="basicform">
-                <h3 class="section-title">Создание новой категории</h3>
+                <h3 class="section-title">Редактирование категории</h3>
                 <p>Use custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
             </div>
             <div class="card">

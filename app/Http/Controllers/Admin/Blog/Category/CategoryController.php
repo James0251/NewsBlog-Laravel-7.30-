@@ -52,30 +52,31 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog\Category  $category
-     * @return Response
+     * @param Category $category
+     * @return Application|Factory|View
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.blog.categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog\Category  $category
-     * @return Response
+     * @param Category $category
+     * @return Application|Factory|View
      */
     public function edit(Category $category)
     {
-        //
+        Category::find($category);
+        return view('admin.blog.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Models\Blog\Category  $category
+     * @param Category $category
      * @return Response
      */
     public function update(Request $request, Category $category)
@@ -86,7 +87,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog\Category  $category
+     * @param Category $category
      * @return Response
      */
     public function destroy(Category $category)
