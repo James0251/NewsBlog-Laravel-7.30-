@@ -13,21 +13,43 @@
             <div class="card">
                 <h5 class="card-header">Basic Form</h5>
                 <div class="card-body">
-                    <form action="{{ route('categories.store') }}" method="POST">
+                    <form action="{{ route('categories.store')}}" method="POST">
                         @csrf
+
                         <div class="form-group">
                             <label for="inputText3" class="col-form-label">Название категории</label>
-                            <input id="inputText3" type="text" class="form-control" name="title" autofocus>
+                            <input id="inputText3" type="text"
+                                   class="form-control @error('title') is-invalid @enderror"
+                                   name="title"
+                                   autofocus>
+
+                            @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
                         </div>
+
                         <div class="form-group">
                             <label for="inputText3" class="col-form-label">Slug</label>
-                            <input id="inputText3" type="text" class="form-control" name="slug">
+                            <input id="inputText3" type="text"
+                                   class="form-control @error('slug') is-invalid @enderror"
+                                   name="slug">
+
+                            @error('slug')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
                         </div>
 
                         <div class="custom-file mb-3">
                             <input type="file" name="image" class="custom-file-input" id="customFile">
                             <label class="custom-file-label" for="customFile">Загрузить фото категории</label>
                         </div>
+
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Описание категории</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3"></textarea>

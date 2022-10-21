@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin\Blog\Category;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Blog\Category\CategoryRequest;
 use App\Models\Blog\Category;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class CategoryController extends Controller
@@ -20,7 +22,6 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-
         return view('admin.blog.categories.index', compact('categories'));
     }
 
@@ -37,25 +38,24 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param CategoryRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        Category::create([
-            'title' => $request->get('title'),
-            'slug' => $request->get('slug'),
-            'content' => $request->get('content'),
-        ]);
+        $dataCategories = $request->validated();
+        Category::create($dataCategories);
+
+        return Redirect::route('categories.index')->withSussess('Category created and saved');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog\Category  $category
      * @return Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
         //
     }
@@ -63,10 +63,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog\Category  $category
      * @return Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
         //
     }
@@ -75,10 +75,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
+     * @param  \App\Models\Blog\Category  $category
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -86,10 +86,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Blog\Category  $category
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
     }
