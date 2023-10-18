@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'Main'], function () {
+    // главная страница авторизованных пользователей
     Route::get('/', 'IndexController')->name('main');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    // admin/dashboard
     Route::get('/dashboard', 'DashboardController')->name('admin.dashboard');
 
+    // admin/blog - пока ничего нет, кроме категорий
     Route::group(['prefix' => 'blog'], function () {
+        // admin/blog/categories
         Route::resource('/categories', 'Blog\Category\CategoryController');
     });
 
@@ -29,4 +34,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 Auth::routes();
 
+// страница авторизованного в личный кабинет
 Route::get('/home', 'HomeController@index')->name('home');
