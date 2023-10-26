@@ -36,3 +36,5 @@ Auth::routes();
 
 // страница авторизованного в личный кабинет
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/blog', [\App\Http\Controllers\Main\Blog\IndexController::class, 'index'])->name('blog.index');
