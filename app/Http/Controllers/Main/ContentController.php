@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class IndexController extends Controller
+class ContentController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -19,6 +19,6 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('main.index');
+        return view('layouts.main.content');
     }
 }
