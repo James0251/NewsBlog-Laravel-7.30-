@@ -1,12 +1,14 @@
-@extends('layouts.main')
+@extends('layouts.main.index')
 
 @section('unreg')
 
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="login-wrap">
             <div class="login-html">
-                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Вход</label>
-                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Регистрация</label>
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1"
+                                                                                         class="tab">Вход</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2"
+                                                                                 class="tab">Регистрация</label>
                 <div class="login-form">
 
                     <form method="POST" action="{{ route('login') }}">
@@ -17,7 +19,8 @@
 
                             {{-- Email --}}
                             <div class="group">
-                                <label for="email" class="label" style="margin-bottom: 15px">{{ __('E-Mail Address') }}</label>
+                                <label for="email" class="label"
+                                       style="margin-bottom: 15px">{{ __('E-Mail Address') }}</label>
                                 <input id="email"
                                        type="email"
                                        class="input @error('email') is-invalid @enderror"
@@ -36,7 +39,8 @@
 
                             {{-- Password --}}
                             <div class="group">
-                                <label for="password" class="label" style="margin-bottom: 15px">{{ __('Password') }}</label>
+                                <label for="password" class="label"
+                                       style="margin-bottom: 15px">{{ __('Password') }}</label>
                                 <input id="password"
                                        type="password"
                                        class="input @error('password') is-invalid @enderror"
@@ -56,7 +60,7 @@
                             {{-- Checkbox --}}
                             <div class="group">
                                 <input id="remember" {{ old('remember') ? 'checked' : '' }}
-                                       type="checkbox"
+                                type="checkbox"
                                        name="remember"
                                        class="check"
                                        checked>
@@ -82,7 +86,7 @@
 
                             {{-- Name --}}
                             <div class="group">
-                                <label for="name" class="label" style="margin-bottom: 15px">{{ __('Name') }}</label>
+                                <label for="name" class="label" style="margin-bottom: 15px">{{ __('Имя') }}</label>
                                 <input id="name"
                                        type="text"
                                        class="input @error('name') is-invalid @enderror"
@@ -101,7 +105,8 @@
 
                             {{-- E-Mail --}}
                             <div class="group">
-                                <label for="email" class="label" style="margin-bottom: 15px">{{ __('E-Mail Address') }}</label>
+                                <label for="email" class="label"
+                                       style="margin-bottom: 15px">{{ __('E-Mail Адрес') }}</label>
                                 <input id="email"
                                        type="email"
                                        class="input @error('email') is-invalid @enderror"
@@ -119,7 +124,8 @@
 
                             {{-- Password --}}
                             <div class="group">
-                                <label for="password" class="label" style="margin-bottom: 15px">{{ __('Password') }}</label>
+                                <label for="password" class="label"
+                                       style="margin-bottom: 15px">{{ __('Пароль') }}</label>
                                 <input id="password"
                                        type="password"
                                        class="input @error('password') is-invalid @enderror"
@@ -138,7 +144,8 @@
 
                             {{-- Confirm Password --}}
                             <div class="group">
-                                <label for="password-confirm" class="label" style="margin-bottom: 15px">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="label"
+                                       style="margin-bottom: 15px">{{ __('Подтвердите пароль') }}</label>
                                 <input id="password-confirm"
                                        type="password"
                                        class="input @error('password') is-invalid @enderror"
