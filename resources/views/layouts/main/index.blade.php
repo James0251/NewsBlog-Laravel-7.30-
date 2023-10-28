@@ -1,7 +1,7 @@
 {{-- Главный Шаблон --}}
 
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,12 +25,13 @@
 {{-- Подключаем регистрацию/авторизацию пользователя --}}
 @include('layouts.unreg_user')
 
+{{-- Подключаем Карусель на главной странице --}}
+@include('carousel.carousel')
 
 
 
 
-
-{{-- Тут будет отображаться основной контент layouts/main/content.blade.php --}}
+{{-- Тут будет отображаться основной контент layouts/carousel/content.blade.php --}}
 @yield('content')
 
 {{-- Подключаем Footer --}}
