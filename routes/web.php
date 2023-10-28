@@ -14,22 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'Main'], function () {
-    // главная страница авторизованных пользователей
+//Роут для отображения главной страницы localhost:8000
+Route::namespace('Main')->group(function () {
     Route::get('/', 'ContentController')->name('main');
+
+    //отображает главную страницу БЛОГА
+    Route::prefix('blog')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Main\Blog\IndexController::class, 'index'])->name('blog.index');
+    });
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    // admin/dashboard
+
+// Роуты для админки
+Route::namespace('Admin')->prefix('admin')->group(function () {
+    // главная страница admin/dashboard
     Route::get('/dashboard', 'DashboardController')->name('admin.dashboard');
 
     // admin/blog - пока ничего нет, кроме категорий
-    Route::group(['prefix' => 'blog'], function () {
+    Route::prefix('blog')->group(function () {
         // admin/blog/categories
-        Route::resource('/categories', 'Blog\Category\CategoryController');
+        Route::resource('categories', 'Blog\Category\CategoryController');
     });
-
-
 });
 
 Auth::routes();
@@ -39,5 +44,3 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 
 
 
-//отображает главную страницу БЛОГА
-Route::get('/blog', [\App\Http\Controllers\Main\Blog\IndexController::class, 'index'])->name('blog.index');
