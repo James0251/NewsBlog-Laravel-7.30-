@@ -524,4 +524,3 @@
         </div>
     </div>
 @endsection
-

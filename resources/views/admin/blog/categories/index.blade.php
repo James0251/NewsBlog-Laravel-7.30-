@@ -577,4 +577,3 @@
         </div>
     </div>
 @endsection
-

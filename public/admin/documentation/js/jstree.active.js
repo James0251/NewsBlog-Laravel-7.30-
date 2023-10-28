@@ -1,8 +1,8 @@
 
 (function ($) {
  "use strict";
-			
-	
+
+
 $('#jstree1').jstree({
             'core' : {
                 'check_callback' : true
@@ -115,7 +115,7 @@ $('#jstree1').jstree({
                 'Templates',
             ]
         } });
-	
-	
-})(jQuery); 
+
+
+})(jQuery);
 
