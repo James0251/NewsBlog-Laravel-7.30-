@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Main'], function () {
     // главная страница авторизованных пользователей
-    Route::get('/', 'IndexController')->name('main');
+    Route::get('/', 'ContentController')->name('main');
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
@@ -35,6 +35,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 Auth::routes();
 
 // страница авторизованного в личный кабинет
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+//отображает главную страницу БЛОГА
 Route::get('/blog', [\App\Http\Controllers\Main\Blog\IndexController::class, 'index'])->name('blog.index');
