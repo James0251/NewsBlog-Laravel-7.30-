@@ -75,13 +75,15 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Category $category
+     * @param CategoryRequest $request
      * @return Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $dataCategories = $request->validated();
+        $category->update($dataCategories);
+
+        return Redirect::route('categories.index')->withSuccess('Данные успешно обновлены');
     }
 
     /**
@@ -92,6 +94,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return Redirect::route('categories.index')->withSuccess('Данная категория ' . $category->name . ' была удалена успешно!');
     }
 }

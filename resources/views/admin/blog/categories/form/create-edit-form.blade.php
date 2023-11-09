@@ -4,7 +4,11 @@
     <input id="inputText3" type="text"
            class="form-control @error('title') is-invalid @enderror"
            name="title"
-{{--           value="{{ old('title', $category->title) ?: '' }}"--}}
+
+           {{-- Если редактируем, отображается старое значение --}}
+           @if(Route::currentRouteName() === 'categories.edit')
+               value="{{ old('title', $category->title) ?: '' }}"
+           @endif
            autofocus>
 
     @error('title')
@@ -19,7 +23,11 @@
     <label for="inputText3" class="col-form-label">Slug</label>
     <input id="inputText3" type="text"
            class="form-control @error('slug') is-invalid @enderror"
-{{--           value="{{ old('slug', $category->slug) ?: '' }}"--}}
+
+           {{-- Если редактируем, отображается старое значение --}}
+           @if(Route::currentRouteName() === 'categories.edit')
+               value="{{ old('slug', $category->slug) ?: '' }}"
+           @endif
            name="slug">
 
     @error('slug')
@@ -42,7 +50,11 @@
               id="exampleFormControlTextarea1"
               name="content"
               rows="3">
-{{--        {{ old('content', $category->content) ?: '' }}--}}
+
+        {{-- Если редактируем, отображается старое значение --}}
+        @if(Route::currentRouteName() === 'categories.edit')
+            {{ old('content', $category->content) ?: '' }}
+        @endif
     </textarea>
 </div>
 
@@ -55,6 +67,7 @@
             <span>Создать категорию</span>
         @endif
     </button>
+    {{-- Назад --}}
     <a class="btn btn-secondary d-inline-block float-md-right text-white font-weight-bold" href="{{ route('categories.index') }}">
         <span>Назад</span>
     </a>
