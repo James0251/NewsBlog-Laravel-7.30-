@@ -32,12 +32,3 @@
 </div>
 
 @endsection
-
-
-
-
-
-
-
-
-

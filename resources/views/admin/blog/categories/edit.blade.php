@@ -8,16 +8,19 @@
         <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10" style="left: 50px">
             <div class="section-block" id="basicform">
                 <h3 class="section-title">Редактирование категории</h3>
-                <p>Use custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
+                <p>Use custom button styles for actions in forms, dialogs, and more with support for multiple sizes,
+                    states, and more.</p>
             </div>
             <div class="card">
                 <h5 class="card-header">Basic Form</h5>
                 <div class="card-body">
-                    <form action="{{ route('categories.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="POST"
+                          enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
 
                         {{-- Тут подключаем форму создания/редактирования категорий --}}
-                        @include('admin.blog.categories.form.form')
+                        @include('admin.blog.categories.form.create-edit-form')
 
                     </form>
                 </div>

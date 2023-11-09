@@ -49,7 +49,11 @@
 {{-- Кнопки --}}
 <div class="col-sm-12 pl-0">
     <button class="btn btn-primary" type="submit">
-        <span>Создать категорию</span>
+        @if(Route::currentRouteName() === 'categories.edit')
+            <span>Редактировать категорию</span>
+        @else
+            <span>Создать категорию</span>
+        @endif
     </button>
     <a class="btn btn-secondary d-inline-block float-md-right text-white font-weight-bold" href="{{ route('categories.index') }}">
         <span>Назад</span>
