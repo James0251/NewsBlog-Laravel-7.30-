@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('Main')->group(function () {
     Route::get('/', 'ContentController')->name('main');
 
+    //отображает главную страницу МАГАЗИНА
+    Route::prefix('shop')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Shop\ShopIndexController::class, 'index'])->name('shop.index');
+    });
+
     //отображает главную страницу БЛОГА
     Route::prefix('blog')->group(function () {
         Route::get('/', [\App\Http\Controllers\Main\Blog\IndexController::class, 'index'])->name('blog.index');
