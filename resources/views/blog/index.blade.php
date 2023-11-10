@@ -12,7 +12,7 @@
                     <h2>Blog</h2>
 
                     <ol>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{ route('main') }}">Home</a></li>
                         <li>Blog</li>
                     </ol>
                 </div>
