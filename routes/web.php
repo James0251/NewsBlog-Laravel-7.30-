@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Main\Blog\IndexController;
+use App\Http\Controllers\Shop\ShopCategoryController;
+use App\Http\Controllers\Shop\ShopIndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,15 +23,17 @@ Route::namespace('Main')->group(function () {
 
     //отображает главную страницу МАГАЗИНА
     Route::prefix('shop')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Shop\ShopIndexController::class, 'index'])->name('shop.index');
+        Route::get('/', [ShopIndexController::class, 'index'])->name('shop.index');
+        Route::get('categories', [ShopCategoryController::class, 'index']);
     });
 
     //отображает главную страницу БЛОГА
     Route::prefix('blog')->group(function () {
-        Route::get('/', [\App\Http\Controllers\Main\Blog\IndexController::class, 'index'])->name('blog.index');
+        Route::get('/', [IndexController::class, 'index'])->name('blog.index');
     });
 });
 
+//Route::resource('shop/categories', 'Shop\ShopCategoryController');
 
 // Роуты для админки
 Route::namespace('Admin')->prefix('admin')->group(function () {

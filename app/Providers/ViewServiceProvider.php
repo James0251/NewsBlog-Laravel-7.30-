@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Blog\Category;
+use App\Models\Shop\ShopCategory;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,9 +27,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        View::composer('admin.blog.categories.form.form', function ($view) use ($id) {
-//            $category = Category::findOrFail($id);
-//            $view->with('category', $category);
-//        });
+        View::composer('shop.index', function ($view) {
+            $shop_categories = ShopCategory::all();
+            $view->with('shop_categories', $shop_categories);
+        });
     }
 }

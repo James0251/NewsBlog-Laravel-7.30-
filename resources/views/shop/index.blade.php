@@ -1,5 +1,3 @@
-
-
 @extends('layouts.main.index')
 
 @section('content')
@@ -27,16 +25,8 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-
-                            <ul id="portfolio-flters">
-                                <li data-filter="*" class="filter-active">All</li>
-                                @foreach($shop_categories as $shopCategory)
-                                <li data-filter=".filter-{{ $shopCategory->slug }}">{{ $shopCategory->name }}</li>
-{{--                                <li data-filter=".filter-card">Card</li>--}}
-{{--                                <li data-filter=".filter-web">Web</li>--}}
-                                @endforeach
-                            </ul>
-
+                        {{-- Там лежит foreach с Категориями --}}
+                        @include('shop.shop_category')
                     </div>
                 </div>
 
