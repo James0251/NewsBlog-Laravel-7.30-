@@ -3,6 +3,7 @@
 use App\Http\Controllers\Main\Blog\IndexController;
 use App\Http\Controllers\Shop\ShopCategoryController;
 use App\Http\Controllers\Shop\ShopIndexController;
+use App\Http\Controllers\Shop\ShopProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::namespace('Main')->group(function () {
     Route::prefix('shop')->group(function () {
         Route::get('/', [ShopIndexController::class, 'index'])->name('shop.index');
         Route::get('categories', [ShopCategoryController::class, 'index']);
+        Route::get('products', [ShopProductController::class, 'index']);
     });
 
     //отображает главную страницу БЛОГА
